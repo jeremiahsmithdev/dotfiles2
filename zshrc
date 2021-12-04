@@ -79,6 +79,7 @@ HIST_STAMPS="dd/mm/yyyy"
 plugins=(zsh-autosuggestions
 git
 copyfile
+alias-finder
 sudo)
 
 source $ZSH/oh-my-zsh.sh
@@ -114,21 +115,39 @@ alias onload='cd /remote/tmp/users_workplace/jesmith/codebase/onload_engine'
 alias fli_npypy='cd /remote/tmp/users_workplace/jesmith/codebase/cml/cmfmt/ngflirgr/fli_npypy'
 alias pylintt='npypy-manage run pylint --ignore=conftest.py,.venv,cml,fml --fail-under=8.0 flight_disruption/your_file_name.py'
 alias pylint2='npypy-manage run pylint --ignore=conftest.py,.venv,onload_engine,fml --fail-under=8.0'
-alias reload="exec $SHELL -l"
+alias reload="exec zsh"
 alias gst='git status'
 alias gl='git log --oneline'
-alias ^L='clear'
+# alias ^L='clear'
 alias fzf='~/bin/fzf/bin/fzf'
 #alias tmux='~/.local/bin/tmux'
 # alias bat='~/bin/bat'
 alias zshrc='nvim ~/.zshrc.override'
 alias .tmux.conf='nvim ~/.tmux.conf'
 alias init.vim='nvim ~/.config/nvim/init.vim'
+alias init.lua='nvim ~/.config/nvim/lua/init.lua'
 #alias nvim='~/nvim.appimage'
 alias tmux='tmux -u'
+alias nttreboot="ntt vsy c; ntt config; ntt b; ntt loadbasedb"
+alias ga='git add $(fgc)'
+alias squash='git rebase -i $(fcs)'
+alias clr='tmux clear-history; clear'
+alias ta='tmux attach'
+alias td='tmux detach'
+alias lg='lazygit'
+
+source ~/.zsh/alias.zsh
+
+alias opts='nvim ~/.config/nvim/lua/opts.lua'
+alias plugs='nvim ~/.config/nvim/lua/plugs.lua'
+alias keys='nvim ~/.config/nvim/lua/keys.lua'
+alias style='nvim ~/.config/nvim/lua/style/style.lua'
+alias init='nvim ~/.config/nvim/lua/opts.lua ~/.config/nvim/lua/plugs.lua ~/.config/nvim/lua/keys.lua ~/.config/nvim/lua/style/style.lua'
 # bindkey -s "^F" 'nvim $(fzf --preview "bat --style=numbers --color=always --line-range :500 {}")\n'
 bindkey -v
 export KEYTIMEOUT=1
+
+ZSH_ALIAS_FINDER_AUTOMATIC=true
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
@@ -151,8 +170,33 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
+# ============  FZF SHORTCUTS   ===============================
+function f() {
+    local fname
+    fname=$(fzf --preview "bat --style=numbers --color=always {}") || return
+    nvim "$fname"
+}
+
+function d() {
+    local dirname
+    dirname=$(find -type d | fzf) || return
+    cd "$dirname"
+}
+source ~/.zsh/fzf-functions.zsh
+# =============================================================
+
 bindkey '^E' autosuggest-accept
 bindkey -s "^F" 'nvim $(fzf --preview "bat --style=numbers --color=always {}")\n'
+zle -N fzf_file f
+zle -N fzf_dir fcd
+# bindkey "^P" fzf_file
+# bindkey "^F" fzf_file
+bindkey "^F" fzf_file
+
+zle -N kill_pid fkil
+zle -N magic fkil
+alias fkil kill_pid
+# alias ff magic
 
 # bindkey '^\n' autosuggest-accept
 # bindkey -s '^\n' autosuggest-execute 
@@ -183,3 +227,26 @@ prompt_symbol='❯'
 PROMPT="%(?.%F{magenta}.%F{red})${prompt_symbol}%f "
 
 # source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
+#
+
+# FZF ripgrep
+# frg() {
+# INITIAL_QUERY=""
+# RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+# FZF_DEFAULT_COMMAND="$RG_PREFIX '$INITIAL_QUERY'" \
+#   fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+#       --ansi --disabled --query "$INITIAL_QUERY" \
+#       --height=50% --layout=reverse
+# }
+
+#TMPDIR=$HOME/tmp
+
+#TMP=$TMPDIR
+#TEMP=$TMPDIR
+
+#export TMPDIR TMP TEMP
+
+CMLDIR=/remote/tmp/users_workplace/jesmith/codebase/cml
+CML=$CMLDIR
+export CMLDIR CML
+
