@@ -1,0 +1,4 @@
+/home/jesmith/neovim/build/src/nvim/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/foo.dir
+/home/jesmith/neovim/build/src/nvim/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/boo.dir
+/home/jesmith/neovim/build/src/nvim/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/edit_cache.dir
+/home/jesmith/neovim/build/src/nvim/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/rebuild_cache.dir

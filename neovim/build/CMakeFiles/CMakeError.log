@@ -1,0 +1,206 @@
+Performing C SOURCE FILE Test HAS_ACCEPTABLE_FORTIFY failed with the following output:
+Change Dir: /home/jesmith/neovim/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_85a34 && [1/2] Building C object CMakeFiles/cmTC_85a34.dir/src.c.o
+FAILED: CMakeFiles/cmTC_85a34.dir/src.c.o 
+/usr/bin/cc -DHAS_ACCEPTABLE_FORTIFY  -O2 -DNDEBUG -O3 -DNDEBUG -o CMakeFiles/cmTC_85a34.dir/src.c.o -c /home/jesmith/neovim/build/CMakeFiles/CMakeTmp/src.c
+/home/jesmith/neovim/build/CMakeFiles/CMakeTmp/src.c:5:2: error: #error "_FORTIFY_SOURCE > 1"
+    5 | #error "_FORTIFY_SOURCE > 1"
+      |  ^~~~~
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+#include <string.h>
+
+#if defined(_FORTIFY_SOURCE) && _FORTIFY_SOURCE > 1
+#error "_FORTIFY_SOURCE > 1"
+#endif
+int
+main(void)
+{
+  return 0;
+}
+
+Determining if the function kstat_lookup exists in the kstat failed with the following output:
+Change Dir: /home/jesmith/neovim/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_47478 && [1/2] Building C object CMakeFiles/cmTC_47478.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_47478
+FAILED: cmTC_47478 
+: && /usr/bin/cc -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 -DCHECK_FUNCTION_EXISTS=kstat_lookup -O2 -DNDEBUG -O3 -DNDEBUG -Wl,--no-undefined CMakeFiles/cmTC_47478.dir/CheckFunctionExists.c.o -o cmTC_47478 -L/home/jesmith/neovim/build/CMakeFiles/CMakeTmp/kstat.h -Wl,-rpath,/home/jesmith/neovim/build/CMakeFiles/CMakeTmp/kstat.h  -lkstat && :
+/usr/bin/ld: cannot find -lkstat
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function kvm_open exists in the kvm failed with the following output:
+Change Dir: /home/jesmith/neovim/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_e2b58 && [1/2] Building C object CMakeFiles/cmTC_e2b58.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_e2b58
+FAILED: cmTC_e2b58 
+: && /usr/bin/cc -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 -DCHECK_FUNCTION_EXISTS=kvm_open -O2 -DNDEBUG -O3 -DNDEBUG -Wl,--no-undefined CMakeFiles/cmTC_e2b58.dir/CheckFunctionExists.c.o -o cmTC_e2b58 -L/home/jesmith/neovim/build/CMakeFiles/CMakeTmp/kvm.h -Wl,-rpath,/home/jesmith/neovim/build/CMakeFiles/CMakeTmp/kvm.h  -lkvm && :
+/usr/bin/ld: cannot find -lkvm
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function perfstat_cpu exists in the perfstat failed with the following output:
+Change Dir: /home/jesmith/neovim/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_7f302 && [1/2] Building C object CMakeFiles/cmTC_7f302.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_7f302
+FAILED: cmTC_7f302 
+: && /usr/bin/cc -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 -DCHECK_FUNCTION_EXISTS=perfstat_cpu -O2 -DNDEBUG -O3 -DNDEBUG -Wl,--no-undefined CMakeFiles/cmTC_7f302.dir/CheckFunctionExists.c.o -o cmTC_7f302 -L/home/jesmith/neovim/build/CMakeFiles/CMakeTmp/libperfstat.h -Wl,-rpath,/home/jesmith/neovim/build/CMakeFiles/CMakeTmp/libperfstat.h  -lperfstat && :
+/usr/bin/ld: cannot find -lperfstat
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function sendfile exists in the sendfile failed with the following output:
+Change Dir: /home/jesmith/neovim/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_c8200 && [1/2] Building C object CMakeFiles/cmTC_c8200.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_c8200
+FAILED: cmTC_c8200 
+: && /usr/bin/cc -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 -DCHECK_FUNCTION_EXISTS=sendfile -O2 -DNDEBUG -O3 -DNDEBUG -Wl,--no-undefined CMakeFiles/cmTC_c8200.dir/CheckFunctionExists.c.o -o cmTC_c8200  -lsendfile && :
+/usr/bin/ld: cannot find -lsendfile
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/jesmith/neovim/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_59eb4 && [1/2] Building C object CMakeFiles/cmTC_59eb4.dir/src.c.o
+[2/2] Linking C executable cmTC_59eb4
+FAILED: cmTC_59eb4 
+: && /usr/bin/cc -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 -O2 -DNDEBUG -O3 -DNDEBUG -Wl,--no-undefined CMakeFiles/cmTC_59eb4.dir/src.c.o -o cmTC_59eb4   && :
+/usr/bin/ld: CMakeFiles/cmTC_59eb4.dir/src.c.o: in function `main':
+src.c:(.text.startup+0x29): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text.startup+0x32): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text.startup+0x3b): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text.startup+0x46): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/jesmith/neovim/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_5b01b && [1/2] Building C object CMakeFiles/cmTC_5b01b.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_5b01b
+FAILED: cmTC_5b01b 
+: && /usr/bin/cc -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 -DCHECK_FUNCTION_EXISTS=pthread_create -O2 -DNDEBUG -O3 -DNDEBUG -Wl,--no-undefined CMakeFiles/cmTC_5b01b.dir/CheckFunctionExists.c.o -o cmTC_5b01b  -lpthreads && :
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+
+Performing C SOURCE FILE Test HAS_WSTATIC_IN_INLINE failed with the following output:
+Change Dir: /home/jesmith/neovim/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_80b75 && [1/2] Building C object CMakeFiles/cmTC_80b75.dir/src.c.o
+FAILED: CMakeFiles/cmTC_80b75.dir/src.c.o 
+/usr/bin/cc -DHAS_WSTATIC_IN_INLINE  -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 -DNVIM_TS_HAS_SET_MATCH_LIMIT -O2 -DNDEBUG -O3 -DNDEBUG   -Wstatic-in-inline -o CMakeFiles/cmTC_80b75.dir/src.c.o -c /home/jesmith/neovim/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-Wstatic-in-inline'
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main(void) { return 0; }
+Determining if the _NSGetEnviron exist failed with the following output:
+Change Dir: /home/jesmith/neovim/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_c8f85 && [1/2] Building C object CMakeFiles/cmTC_c8f85.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_c8f85.dir/CheckSymbolExists.c.o 
+/usr/bin/cc   -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 -DNVIM_TS_HAS_SET_MATCH_LIMIT -O2 -DNDEBUG -O3 -DNDEBUG -o CMakeFiles/cmTC_c8f85.dir/CheckSymbolExists.c.o -c /home/jesmith/neovim/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/jesmith/neovim/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: crt_externs.h: No such file or directory
+    2 | #include <crt_externs.h>
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+File /home/jesmith/neovim/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <crt_externs.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _NSGetEnviron
+  return ((int*)(&_NSGetEnviron))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if files sys/sdt.h exist failed with the following output:
+Change Dir: /home/jesmith/neovim/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_e87b3 && [1/2] Building C object CMakeFiles/cmTC_e87b3.dir/HAVE_SYS_SDT_H.c.o
+FAILED: CMakeFiles/cmTC_e87b3.dir/HAVE_SYS_SDT_H.c.o 
+/usr/bin/cc   -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 -DNVIM_TS_HAS_SET_MATCH_LIMIT -O2 -DNDEBUG -O3 -DNDEBUG -o CMakeFiles/cmTC_e87b3.dir/HAVE_SYS_SDT_H.c.o -c /home/jesmith/neovim/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SDT_H.c
+/home/jesmith/neovim/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SDT_H.c:2:10: fatal error: sys/sdt.h: No such file or directory
+    2 | #include <sys/sdt.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/sdt.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/endian.h exist failed with the following output:
+Change Dir: /home/jesmith/neovim/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_95f80 && [1/2] Building C object CMakeFiles/cmTC_95f80.dir/HAVE_SYS_ENDIAN_H.c.o
+FAILED: CMakeFiles/cmTC_95f80.dir/HAVE_SYS_ENDIAN_H.c.o 
+/usr/bin/cc   -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 -DNVIM_TS_HAS_SET_MATCH_LIMIT -O2 -DNDEBUG -O3 -DNDEBUG -o CMakeFiles/cmTC_95f80.dir/HAVE_SYS_ENDIAN_H.c.o -c /home/jesmith/neovim/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_ENDIAN_H.c
+/home/jesmith/neovim/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_ENDIAN_H.c:2:10: fatal error: sys/endian.h: No such file or directory
+    2 | #include <sys/endian.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/endian.h>
+
+
+int main(void){return 0;}
+
